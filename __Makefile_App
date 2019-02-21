@@ -1,0 +1,25 @@
+CXXFLAGS = -Wall -O2
+
+BINDIR = ./bin
+INCDIR = ./include
+LIBDIR = ./lib
+OBJDIR = ./obj
+SRCDIR = ./src
+
+INCDIRS = -I $(INCDIR)
+LIBDIRS =
+LIBS =
+
+SOURCES = $(wildcard $(SRCDIR)/*.cpp)
+OBJECTS = $(addprefix $(OBJDIR)/, $(notdir $(SOURCES:.cpp=.o)))
+
+$(TARGET): $(OBJECTS)
+	$(CXX) -o $@ $^ $(LIBS)
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@[ -d $(OBJDIR) ]
+	$(CXX) $(CXXFLAGS) $(INCDIRS) -o $@ -c $^
+
+.PHONY: clean
+clean:
+	$(RM) $(TARGET) $(OBJECTS)
