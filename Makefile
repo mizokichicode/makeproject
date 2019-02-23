@@ -51,8 +51,6 @@ git:
 	echo "[Bb]in/" >> ${GITIGN}
 	echo "[Ll]ib/" >> ${GITIGN}
 	echo "[Oo]bj/" >> ${GITIGN}
-	echo "${TARGET}" >> ${GITIGN}
-	echo "${TARGET}.*" >> ${GITIGN}
 
 .PHONY: mkappsrc
 mkappsrc:
