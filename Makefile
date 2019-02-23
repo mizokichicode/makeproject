@@ -24,6 +24,7 @@ README = ./${TARGET}/README.md
 GITIGN = ./${TARGET}/.gitignore
 MKFILE = ./${TARGET}/Makefile
 BASEMKFILE = ./__Makefile_${TYPE}
+APPSRC = ./${TARGET}/${SRC}/${TARGET}.cpp
 
 .PHONY: project
 project:
@@ -52,6 +53,30 @@ git:
 	echo "[Oo]bj/" >> ${GITIGN}
 	echo "${TARGET}" >> ${GITIGN}
 	echo "${TARGET}.*" >> ${GITIGN}
+
+.PHONY: mkappsrc
+mkappsrc:
+	echo "////////////////////////////////////////////////////////////////////////////////" > ${APPSRC}
+	echo "// ${TARGET}.cpp" >> ${APPSRC}
+	echo "//" >> ${APPSRC}
+	echo "" >> ${APPSRC}
+	echo "#include <stdio.h>" >> ${APPSRC}
+	echo "#include <stdlib.h>" >> ${APPSRC}
+	echo "#include <stdarg.h>" >> ${APPSRC}
+	echo "#include <string.h>" >> ${APPSRC}
+	echo "" >> ${APPSRC}
+	echo "////////////////////////////////////////////////////////////////////////////////" >> ${APPSRC}
+	echo "" >> ${APPSRC}
+	echo "////////////////////////////////////////////////////////////////////////////////" >> ${APPSRC}
+	echo "" >> ${APPSRC}
+	echo "int main( int argc, char** argv )" >> ${APPSRC}
+	echo "{" >> ${APPSRC}
+	echo "\t// TODO: Please write the code here." >> ${APPSRC}
+	echo "\n\n\n" >> ${APPSRC}
+	echo "\treturn 0;" >> ${APPSRC}
+	echo "}" >> ${APPSRC}
+	echo "" >> ${APPSRC}
+	echo "////////////////////////////////////////////////////////////////////////////////" >> ${APPSRC}
 
 .PHONY: all
 all: project git mkfile
