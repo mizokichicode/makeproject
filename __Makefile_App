@@ -14,7 +14,7 @@ SOURCES = $(wildcard $(SRCDIR)/*.cpp)
 OBJECTS = $(addprefix $(OBJDIR)/, $(notdir $(SOURCES:.cpp=.o)))
 
 $(TARGET): $(OBJECTS)
-	$(CXX) -o $@ $^ $(LIBDIRD) $(LIBS)
+	$(CXX) -o $@ $^ $(LIBDIRS) $(LIBS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@[ -d $(OBJDIR) ]
