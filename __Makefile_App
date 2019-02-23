@@ -20,6 +20,13 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@[ -d $(OBJDIR) ]
 	$(CXX) $(CXXFLAGS) $(INCDIRS) -o $@ -c $^
 
+.PHONY: release
+release:
+	mv $(TARGET) $(BINDIR)/$(TARGET)
+
+.PHONY: all
+all: $(TARGET) release
+
 .PHONY: clean
 clean:
 	$(RM) $(TARGET) $(OBJECTS)
