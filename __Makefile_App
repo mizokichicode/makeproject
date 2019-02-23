@@ -6,7 +6,7 @@ LIBDIR = ./lib
 OBJDIR = ./obj
 SRCDIR = ./src
 
-INCDIRS = -I $(INCDIR)
+INCDIRS = -I$(INCDIR)
 LIBDIRS =
 LIBS =
 
@@ -14,7 +14,7 @@ SOURCES = $(wildcard $(SRCDIR)/*.cpp)
 OBJECTS = $(addprefix $(OBJDIR)/, $(notdir $(SOURCES:.cpp=.o)))
 
 $(TARGET): $(OBJECTS)
-	$(CXX) -o $@ $^ $(LIBS)
+	$(CXX) -o $@ $^ $(LIBDIRD) $(LIBS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@[ -d $(OBJDIR) ]
